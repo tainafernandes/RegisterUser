@@ -1,4 +1,5 @@
 import { User } from '../entities/user';
+import { UserSchema } from '../schemas/user.schema';
 import { UserService } from '../services/user.service';
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 
@@ -8,7 +9,7 @@ export class UserController {
     constructor(private readonly userService: UserService) {};
 
     @Post()
-    async create(@Body() user: User){
+    async create(@Body() user: UserSchema){
         return this.userService.create(user);
     }
 
@@ -23,7 +24,7 @@ export class UserController {
     }
 
     @Put(':id')
-    async update(@Param('id') id: number, @Body() user: User) {
+    async update(@Param('id') id: number, @Body() user: UserSchema) {
         return this.userService.update(id, user);
     }
 
