@@ -16,7 +16,7 @@ import { User } from 'src/user/user';
                 password: configService.get('DATABASE_PASSWORD'),
                 database: configService.get('DATABASE_BD_NAME'),
                 entities: [User],
-                synchronize: true
+                synchronize: true //só usar em ambiente de desenvolvimento 
             }),
             inject: [ConfigService],
         })
